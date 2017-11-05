@@ -1,19 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
-const logger =  (req, res, next) => {
-	console.log(Date.now(), req.method, req.url);
-	next();
-};
+const logger = require('./logger');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
+	extended: true
 })); 
 
-app.all('*', logger);
+app.use(logger());
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
