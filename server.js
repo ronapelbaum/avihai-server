@@ -1,7 +1,7 @@
-const express = require('express')
+const express = require('express');
 // const bodyParser = require('body-parser');
 
-const app = express()
+const app = express();
 
 // app.use(bodyParser);
 
@@ -10,7 +10,7 @@ app.all('*', (req, res, next) => {
 	next();
 });
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Hello World!'));
 
 app.post('/data', (req, res) => res.send(`data: ${req.body}`));
 
